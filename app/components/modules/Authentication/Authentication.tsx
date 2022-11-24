@@ -1,7 +1,6 @@
 import { Connector, useAccount, useConnect, useDisconnect, useSignMessage } from 'wagmi';
 import { InjectedConnector } from 'wagmi/connectors/injected';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
-import { polygon, polygonMumbai } from 'wagmi/chains';
 import { MagicConnectConnector } from '@everipedia/wagmi-magic-connector';
 import { Option } from '../../elements';
 import { signIn } from 'next-auth/react';
@@ -38,9 +37,8 @@ const wallets = [
     logoPath: '/assets/wallets/magiclink.svg',
     connector: new MagicConnectConnector({
       options: {
-        apiKey: 'xxx'
+        apiKey: process.env.NEXT_PUBLIC_MAGICLINK_API_KEY ?? '',
       },
-      chains: [polygon, polygonMumbai],
     }),
   },
 ];
@@ -62,9 +60,16 @@ const Authentication = () => {
       await disconnectAsync();
     }
 
+    var useConnectorChain = true
+    var customChain = 0
+    if (connector instanceof MagicConnectConnector) {
+      useConnectorChain = false
+      customChain = 1
+    }
+
     const { account, chain } = await connectAsync({ connector });
 
-    const userData = { address: account, chain: chain.id, networkType: 'evm' };
+    const userData = { address: account, chain: useConnectorChain ? chain.id : customChain, networkType: 'evm' };
 
     const { message } = await apiPost('/auth/request-message', userData);
 
