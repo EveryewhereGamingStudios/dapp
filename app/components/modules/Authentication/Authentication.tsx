@@ -1,6 +1,8 @@
 import { Connector, useAccount, useConnect, useDisconnect, useSignMessage } from 'wagmi';
 import { InjectedConnector } from 'wagmi/connectors/injected';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
+import { polygon, polygonMumbai } from 'wagmi/chains';
+import { MagicConnectConnector } from '@everipedia/wagmi-magic-connector';
 import { Option } from '../../elements';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
@@ -34,7 +36,12 @@ const wallets = [
   {
     name: 'MagicLink',
     logoPath: '/assets/wallets/magiclink.svg',
-    connector: new InjectedConnector(),
+    connector: new MagicConnectConnector({
+      options: {
+        apiKey: 'xxx'
+      },
+      chains: [polygon, polygonMumbai],
+    }),
   },
 ];
 const Authentication = () => {
