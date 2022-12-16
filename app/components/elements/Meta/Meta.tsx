@@ -3,8 +3,8 @@ import Head from 'next/head';
 const Meta = () => {
   return (
     <Head>
-      <title>Moralis Demo NextJS with NextAuth</title>
-      <meta name="description" content="Moralis Demo NextJS with NextAuth" />
+      <title>Cosmic Exodus GameFi • EverywhereGamingStudios</title>
+      <meta name="description" content="Cosmic Exodus | GameFi" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
   );
