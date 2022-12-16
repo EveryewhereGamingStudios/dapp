@@ -29,14 +29,14 @@ jobs:
   deploy-staging:
     needs:
       - build-website
-    if: success() && github.ref == 'refs/heads/main'
+    # if: success() && github.ref == 'refs/heads/main' # temporary until netlify build problem is solved
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Deploying website to Netlify 🚀
         uses: netlify/actions/cli@master
         with:
-          args: deploy --build
+          args: deploy --build --dir=.next
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
