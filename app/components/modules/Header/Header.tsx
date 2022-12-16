@@ -15,10 +15,10 @@ const Header: FC = () => {
         <Link href="/">
           <a>
             <Image
-              alt="Moralis-Logo-LightBG"
+              alt="CosmicExodus-Logo-Blue"
               className={styles.logo}
               height={30}
-              src="/Moralis-Logo-LightBG.svg"
+              src="/logo-blue.svg"
               width={125}
             />
           </a>
