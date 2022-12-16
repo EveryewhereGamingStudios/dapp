@@ -60,8 +60,8 @@ const Authentication = () => {
       await disconnectAsync();
     }
 
-    var useConnectorChain = true
-    var customChain = 0
+    let useConnectorChain = true
+    let customChain = 0
     if (connector instanceof MagicConnectConnector) {
       useConnectorChain = false
       customChain = 1

@@ -9,9 +9,6 @@ import { publicProvider } from 'wagmi/providers/public';
 import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
 import { MoralisProvider } from 'react-moralis';
-import { ChakraProvider } from '@chakra-ui/react';
-
-import { theme } from '../theme';
 
 const { provider, webSocketProvider } = configureChains(defaultChains, [
   publicProvider(),
