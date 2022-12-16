@@ -60,8 +60,8 @@ const Authentication = () => {
       await disconnectAsync();
     }
 
-    var useConnectorChain = true
-    var customChain = 0
+    let useConnectorChain = true
+    let customChain = 0
     if (connector instanceof MagicConnectConnector) {
       useConnectorChain = false
       customChain = 1
@@ -88,15 +88,19 @@ const Authentication = () => {
     <div className={styles.auth}>
       <h3 className={styles.title}>Web3 Authentication</h3>
       <div className={styles.options}>
-        {wallets.map(({ name, logoPath, connector, disabled }) => (
-          <Option
-            disabled={disabled}
-            key={name}
-            logoPath={logoPath}
-            name={name}
-            onClick={() => handleAuth(connector, disabled)}
-          />
-        ))}
+        {wallets.map(({ name, logoPath, connector, disabled }) => {
+            const connectorInterface = connector ? connector as Connector : undefined
+            return (
+              <Option
+                disabled={disabled}
+                key={name}
+                logoPath={logoPath}
+                name={name}
+                onClick={() => handleAuth(connectorInterface, disabled)}
+              />
+            )
+          }
+        )}
       </div>
     </div>
   );
