@@ -3,5 +3,9 @@ module.exports = {
   ignorePatterns: ['**/build/**/*'],
   env: {
     browser: true,
+    jest: true,
+  },
+  parserOptions: {
+    warnOnUnsupportedTypeScriptVersion: false,
   },
 };
