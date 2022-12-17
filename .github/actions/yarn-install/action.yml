@@ -4,7 +4,7 @@
 #   - Yarn install state (discarded on yarn.lock changes)
 # Based on: https://gist.github.com/belgattitude/042f9caf10d029badbde6cf9d43e400a
 
-name: 'yarn install'
+name: 'yarn-install'
 description: 'Run yarn install with node_modules linker and cache enabled'
 runs:
   using: 'composite'
