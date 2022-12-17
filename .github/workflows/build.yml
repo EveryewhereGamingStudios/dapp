@@ -26,6 +26,12 @@ jobs:
         run: yarn lint
       - name: Build site 🔨
         run: yarn build
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          name: build
+          path: .next
   deploy-staging:
     needs:
       - build-website
@@ -33,9 +39,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
         with:
-          node-version: 16.x
+          name: build
+          path: .next
       - name: Deploying website to Netlify 🚀
         uses: netlify/actions/cli@master
         with:
