@@ -26,7 +26,7 @@
     "moralis": "^2.6.7",
     "moralis-v1": "^1.11.0",
     "next": "12.2.5",
-    "next-auth": "4.10.3",
+    "next-auth": "4.18.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-moralis": "^1.4.2",
