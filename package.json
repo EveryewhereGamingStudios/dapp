@@ -12,7 +12,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.3.1",
+    "@chakra-ui/react": "^2.4.5",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@everipedia/wagmi-magic-connector": "^0.7.1",
